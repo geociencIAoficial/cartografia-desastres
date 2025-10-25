@@ -1,252 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
-    
-            <meta name="viewport" content="width=device-width,
-                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-            <style>
-                #map_d631da76c75ddc42554689fc794d66e4 {
-                    position: relative;
-                    width: 100.0%;
-                    height: 100.0%;
-                    left: 0.0%;
-                    top: 0.0%;
-                }
-                .leaflet-container { font-size: 1rem; }
-            </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-            <style>html, body {
-                width: 100%;
-                height: 100%;
-                margin: 0;
-                padding: 0;
-            }
-            </style>
+  <!-- Leaflet y Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css" />
 
-            <style>#map {
-                position:absolute;
-                top:0;
-                bottom:0;
-                right:0;
-                left:0;
-                }
-            </style>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
 
-            <script>
-                L_NO_TOUCH = false;
-                L_DISABLE_3D = false;
-            </script>
+    #map {
+      height: 100vh;
+      width: 100vw;
+    }
 
-        
+    .leaflet-container {
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .leaflet-control {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    
-    
-<div style="
-    position: fixed;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: white;
-    width: 600px;
-    padding: 10px 20px;
-    border: 2px solid grey;
-    z-index: 9999;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
-">
-Cartografía para la atención a desastres en localidades de los estados de Puebla y Veracruz, México
-</div>
-    
-<div style="
-    position: fixed;
-    top: 70px;
-    right: 20px;
-    width: 200px;
-    background-color: white;
-    border: 2px solid grey;
-    z-index: 9999;
-    font-size: 14px;
-    padding: 12px;
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
-    line-height: 1.6;
-">
-<b>Nivel de urgencia</b><br>
-<i class="fa fa-map-marker fa-2x" style="color:red"></i> Alta<br>
-<i class="fa fa-map-marker fa-2x" style="color:orange"></i> Media<br>
-<i class="fa fa-map-marker fa-2x" style="color:green"></i> Baja
-</div>
-    
-            <div class="folium-map" id="map_d631da76c75ddc42554689fc794d66e4" ></div>
-        
+  <div id="map"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <script>
+    const map = L.map('map').setView([20.53, -97.46], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Aquí puedes agregar tus marcadores personalizados
+  </script>
 </body>
-<script>
-    
-    
-            var map_d631da76c75ddc42554689fc794d66e4 = L.map(
-                "map_d631da76c75ddc42554689fc794d66e4",
-                {
-                    center: [20.3, -97.85],
-                    crs: L.CRS.EPSG3857,
-                    ...{
-  "zoom": 8,
-  "zoomControl": true,
-  "preferCanvas": false,
-}
-
-                }
-            );
-
-            
-
-        
-    
-            var tile_layer_4f1f5f079aab16a67df247d91f823aea = L.tileLayer(
-                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-                {
-  "minZoom": 0,
-  "maxZoom": 19,
-  "maxNativeZoom": 19,
-  "noWrap": false,
-  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
-  "subdomains": "abc",
-  "detectRetina": false,
-  "tms": false,
-  "opacity": 1,
-}
-
-            );
-        
-    
-            tile_layer_4f1f5f079aab16a67df247d91f823aea.addTo(map_d631da76c75ddc42554689fc794d66e4);
-        
-    
-            var marker_c9e0ce9610519c3442a0950ae5e219fd = L.marker(
-                [20.410931, -97.752611],
-                {
-}
-            ).addTo(map_d631da76c75ddc42554689fc794d66e4);
-        
-    
-            var icon_dc3bfda11d5fef0fa1812c9c36a824a7 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "red",
-  "iconColor": "white",
-  "icon": "info-sign",
-  "prefix": "glyphicon",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_b3e7fce89bfd0a6c1c33ee9423654ea1 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_3f51a81d1756c9cffa64e00c2afe711e = $(`<div id="html_3f51a81d1756c9cffa64e00c2afe711e" style="width: 100.0%; height: 100.0%;">     <b>La Palma</b><br>     Municipio: Coyutla<br>     Estado: Veracruz<br>     <b>Necesidad:</b> Medicamentos, productos de limpieza, agua embotellada<br>     <b>Problemática:</b> Brote de dengue     </div>`)[0];
-                popup_b3e7fce89bfd0a6c1c33ee9423654ea1.setContent(html_3f51a81d1756c9cffa64e00c2afe711e);
-            
-        
-
-        marker_c9e0ce9610519c3442a0950ae5e219fd.bindPopup(popup_b3e7fce89bfd0a6c1c33ee9423654ea1)
-        ;
-
-        
-    
-    
-                marker_c9e0ce9610519c3442a0950ae5e219fd.setIcon(icon_dc3bfda11d5fef0fa1812c9c36a824a7);
-            
-    
-            var marker_34c0018665a79a5c5a248ac5aecfad21 = L.marker(
-                [20.275653, -97.95963],
-                {
-}
-            ).addTo(map_d631da76c75ddc42554689fc794d66e4);
-        
-    
-            var icon_ad2d1c422394c2e640fbb05079a7c396 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "orange",
-  "iconColor": "white",
-  "icon": "info-sign",
-  "prefix": "glyphicon",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_9ea92a3d5ab4274b5432e0c7ec56d009 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_c87ee652289a625f3a8f2ab9e0959904 = $(`<div id="html_c87ee652289a625f3a8f2ab9e0959904" style="width: 100.0%; height: 100.0%;">     <b>Xicotepec de Juárez</b><br>     Municipio: Xicotepec<br>     Estado: Puebla<br>     <b>Necesidad:</b> Medicamentos, productos de limpieza, agua embotellada<br>     <b>Problemática:</b> Ropa, medicamento     </div>`)[0];
-                popup_9ea92a3d5ab4274b5432e0c7ec56d009.setContent(html_c87ee652289a625f3a8f2ab9e0959904);
-            
-        
-
-        marker_34c0018665a79a5c5a248ac5aecfad21.bindPopup(popup_9ea92a3d5ab4274b5432e0c7ec56d009)
-        ;
-
-        
-    
-    
-                marker_34c0018665a79a5c5a248ac5aecfad21.setIcon(icon_ad2d1c422394c2e640fbb05079a7c396);
-            
-    
-            var marker_60e8a0556ec3a695dec0f106cbe23561 = L.marker(
-                [20.532965, -97.446024],
-                {
-}
-            ).addTo(map_d631da76c75ddc42554689fc794d66e4);
-        
-    
-            var icon_113594bde3848a9f2fb74186353dc05e = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "green",
-  "iconColor": "white",
-  "icon": "info-sign",
-  "prefix": "glyphicon",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_6d2bfd8f3736440aa906a4c151ec4b60 = L.popup({
-  "maxWidth": "100%",
-});
-
-        
-            
-                var html_058f85f5457ed17b60f830ca3d7e2de2 = $(`<div id="html_058f85f5457ed17b60f830ca3d7e2de2" style="width: 100.0%; height: 100.0%;">     <b>Poza Rica</b><br>     Municipio: Poza Rica<br>     Estado: Veracruz<br>     <b>Necesidad:</b> Ropa<br>     <b>Problemática:</b> Ropa, medicamento     </div>`)[0];
-                popup_6d2bfd8f3736440aa906a4c151ec4b60.setContent(html_058f85f5457ed17b60f830ca3d7e2de2);
-            
-        
-
-        marker_60e8a0556ec3a695dec0f106cbe23561.bindPopup(popup_6d2bfd8f3736440aa906a4c151ec4b60)
-        ;
-
-        
-    
-    
-                marker_60e8a0556ec3a695dec0f106cbe23561.setIcon(icon_113594bde3848a9f2fb74186353dc05e);
-            
-</script>
 </html>
