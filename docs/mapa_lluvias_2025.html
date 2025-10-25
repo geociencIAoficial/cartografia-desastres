@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_5a789cfd638345fcb2663f36a897894f {
+                #map_892f6f297d70ba4ac007ab0d3af0db8d {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -57,8 +57,8 @@
 <div style="
     position: fixed;
     top: 10px;
-    left: 5%;
-    right: 5%;
+    left: 50px;
+    right: 50px;
     background-color: white;
     padding: 10px 15px;
     border: 2px solid grey;
@@ -67,7 +67,6 @@
     font-weight: bold;
     text-align: center;
     box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
-    max-width: 90%;
 ">
 Cartografía para la atención a desastres en localidades de los estados de Puebla y Veracruz, México
 </div>
@@ -92,14 +91,14 @@ Cartografía para la atención a desastres en localidades de los estados de Pueb
 <i class="fa fa-map-marker fa-lg" style="color:green"></i> Baja
 </div>
     
-            <div class="folium-map" id="map_5a789cfd638345fcb2663f36a897894f" ></div>
+            <div class="folium-map" id="map_892f6f297d70ba4ac007ab0d3af0db8d" ></div>
         
 </body>
 <script>
     
     
-            var map_5a789cfd638345fcb2663f36a897894f = L.map(
-                "map_5a789cfd638345fcb2663f36a897894f",
+            var map_892f6f297d70ba4ac007ab0d3af0db8d = L.map(
+                "map_892f6f297d70ba4ac007ab0d3af0db8d",
                 {
                     center: [20.3, -97.85],
                     crs: L.CRS.EPSG3857,
@@ -116,7 +115,7 @@ Cartografía para la atención a desastres en localidades de los estados de Pueb
 
         
     
-            var tile_layer_a655f34029b30000434bb6796f595882 = L.tileLayer(
+            var tile_layer_d8955a406618401382045ee8caec5476 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -133,17 +132,17 @@ Cartografía para la atención a desastres en localidades de los estados de Pueb
             );
         
     
-            tile_layer_a655f34029b30000434bb6796f595882.addTo(map_5a789cfd638345fcb2663f36a897894f);
+            tile_layer_d8955a406618401382045ee8caec5476.addTo(map_892f6f297d70ba4ac007ab0d3af0db8d);
         
     
-            var marker_07d2a64bea4324ed43d944181190511d = L.marker(
+            var marker_cb6dda6eb0846545c6f716d29fbc1bdf = L.marker(
                 [20.410931, -97.752611],
                 {
 }
-            ).addTo(map_5a789cfd638345fcb2663f36a897894f);
+            ).addTo(map_892f6f297d70ba4ac007ab0d3af0db8d);
         
     
-            var icon_cd3b506dba3950bfcc969181a00ca313 = L.AwesomeMarkers.icon(
+            var icon_62112c8d3cb56cea5ca1e5af5e920938 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "red",
   "iconColor": "white",
@@ -154,34 +153,34 @@ Cartografía para la atención a desastres en localidades de los estados de Pueb
             );
         
     
-        var popup_45719bd5979934c1644c2a717df36995 = L.popup({
+        var popup_3749235bff2373aa9fa657cee9684614 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_8f29de49645a92dc4ad10081303942f4 = $(`<div id="html_8f29de49645a92dc4ad10081303942f4" style="width: 100.0%; height: 100.0%;">     <b>La Palma</b><br>     Municipio: Coyutla<br>     Estado: Veracruz<br>     <b>Necesidad:</b> Medicamentos, productos de limpieza, agua embotellada<br>     <b>Problemática:</b> Brote de dengue     </div>`)[0];
-                popup_45719bd5979934c1644c2a717df36995.setContent(html_8f29de49645a92dc4ad10081303942f4);
+                var html_726fc8304edcccf92b1f85ec24924874 = $(`<div id="html_726fc8304edcccf92b1f85ec24924874" style="width: 100.0%; height: 100.0%;">     <b>La Palma</b><br>     Municipio: Coyutla<br>     Estado: Veracruz<br>     <b>Necesidad:</b> Medicamentos, productos de limpieza, agua embotellada<br>     <b>Problemática:</b> Brote de dengue     </div>`)[0];
+                popup_3749235bff2373aa9fa657cee9684614.setContent(html_726fc8304edcccf92b1f85ec24924874);
             
         
 
-        marker_07d2a64bea4324ed43d944181190511d.bindPopup(popup_45719bd5979934c1644c2a717df36995)
+        marker_cb6dda6eb0846545c6f716d29fbc1bdf.bindPopup(popup_3749235bff2373aa9fa657cee9684614)
         ;
 
         
     
     
-                marker_07d2a64bea4324ed43d944181190511d.setIcon(icon_cd3b506dba3950bfcc969181a00ca313);
+                marker_cb6dda6eb0846545c6f716d29fbc1bdf.setIcon(icon_62112c8d3cb56cea5ca1e5af5e920938);
             
     
-            var marker_82c9279ebd3dff7c93f4b325dbf4c763 = L.marker(
+            var marker_ddded41a72e9787808e75229593864f4 = L.marker(
                 [20.275653, -97.95963],
                 {
 }
-            ).addTo(map_5a789cfd638345fcb2663f36a897894f);
+            ).addTo(map_892f6f297d70ba4ac007ab0d3af0db8d);
         
     
-            var icon_78aaa8f84c193668dd793e0568d47f26 = L.AwesomeMarkers.icon(
+            var icon_3ed174618db1b705e97da8447ce17db1 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
   "iconColor": "white",
@@ -192,34 +191,34 @@ Cartografía para la atención a desastres en localidades de los estados de Pueb
             );
         
     
-        var popup_0a40ba4a00d9bb134163987eb520d13f = L.popup({
+        var popup_a131f8b3427646fe9a162ac938695383 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_ededd8092b606f9311e8f15ce784cf7f = $(`<div id="html_ededd8092b606f9311e8f15ce784cf7f" style="width: 100.0%; height: 100.0%;">     <b>Xicotepec de Juárez</b><br>     Municipio: Xicotepec<br>     Estado: Puebla<br>     <b>Necesidad:</b> Medicamentos, productos de limpieza, agua embotellada<br>     <b>Problemática:</b> Ropa, medicamento     </div>`)[0];
-                popup_0a40ba4a00d9bb134163987eb520d13f.setContent(html_ededd8092b606f9311e8f15ce784cf7f);
+                var html_0815bf885d7ac169c43464480edcce44 = $(`<div id="html_0815bf885d7ac169c43464480edcce44" style="width: 100.0%; height: 100.0%;">     <b>Xicotepec de Juárez</b><br>     Municipio: Xicotepec<br>     Estado: Puebla<br>     <b>Necesidad:</b> Medicamentos, productos de limpieza, agua embotellada<br>     <b>Problemática:</b> Ropa, medicamento     </div>`)[0];
+                popup_a131f8b3427646fe9a162ac938695383.setContent(html_0815bf885d7ac169c43464480edcce44);
             
         
 
-        marker_82c9279ebd3dff7c93f4b325dbf4c763.bindPopup(popup_0a40ba4a00d9bb134163987eb520d13f)
+        marker_ddded41a72e9787808e75229593864f4.bindPopup(popup_a131f8b3427646fe9a162ac938695383)
         ;
 
         
     
     
-                marker_82c9279ebd3dff7c93f4b325dbf4c763.setIcon(icon_78aaa8f84c193668dd793e0568d47f26);
+                marker_ddded41a72e9787808e75229593864f4.setIcon(icon_3ed174618db1b705e97da8447ce17db1);
             
     
-            var marker_7e2c86cdb28d479558b92ed615b8c822 = L.marker(
+            var marker_888a256711356b6dcf06da09f0f307c0 = L.marker(
                 [20.532965, -97.446024],
                 {
 }
-            ).addTo(map_5a789cfd638345fcb2663f36a897894f);
+            ).addTo(map_892f6f297d70ba4ac007ab0d3af0db8d);
         
     
-            var icon_95137b20f8606ddaac513c7004c50c54 = L.AwesomeMarkers.icon(
+            var icon_a5e90b0d1adeb991e977a625e09c35ad = L.AwesomeMarkers.icon(
                 {
   "markerColor": "green",
   "iconColor": "white",
@@ -230,24 +229,24 @@ Cartografía para la atención a desastres en localidades de los estados de Pueb
             );
         
     
-        var popup_d8cd7e768ab6f55963889fc2a83b1ae6 = L.popup({
+        var popup_7c91b80cd0d5ab94ff96a76a7c9324b2 = L.popup({
   "maxWidth": "100%",
 });
 
         
             
-                var html_1ca991a60f2145d826c67ade036324be = $(`<div id="html_1ca991a60f2145d826c67ade036324be" style="width: 100.0%; height: 100.0%;">     <b>Poza Rica</b><br>     Municipio: Poza Rica<br>     Estado: Veracruz<br>     <b>Necesidad:</b> Ropa<br>     <b>Problemática:</b> Ropa, medicamento     </div>`)[0];
-                popup_d8cd7e768ab6f55963889fc2a83b1ae6.setContent(html_1ca991a60f2145d826c67ade036324be);
+                var html_39f15f2a2df62381d85793d891960ede = $(`<div id="html_39f15f2a2df62381d85793d891960ede" style="width: 100.0%; height: 100.0%;">     <b>Poza Rica</b><br>     Municipio: Poza Rica<br>     Estado: Veracruz<br>     <b>Necesidad:</b> Ropa<br>     <b>Problemática:</b> Ropa, medicamento     </div>`)[0];
+                popup_7c91b80cd0d5ab94ff96a76a7c9324b2.setContent(html_39f15f2a2df62381d85793d891960ede);
             
         
 
-        marker_7e2c86cdb28d479558b92ed615b8c822.bindPopup(popup_d8cd7e768ab6f55963889fc2a83b1ae6)
+        marker_888a256711356b6dcf06da09f0f307c0.bindPopup(popup_7c91b80cd0d5ab94ff96a76a7c9324b2)
         ;
 
         
     
     
-                marker_7e2c86cdb28d479558b92ed615b8c822.setIcon(icon_95137b20f8606ddaac513c7004c50c54);
+                marker_888a256711356b6dcf06da09f0f307c0.setIcon(icon_a5e90b0d1adeb991e977a625e09c35ad);
             
 </script>
 </html>
