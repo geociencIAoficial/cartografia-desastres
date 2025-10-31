@@ -1,7 +1,7 @@
 nombre,municipio,estado,lat,lon,necesidad,problematica,status
 La Palma,Coyutla,Veracruz,20.410931,-97.752611,"Medicamentos, productos de limpieza, agua embotellada",Brote de dengue,alta
-Xicotepec de Juárez,Xicotepec,Puebla,20.275653,-97.95963,"Medicamentos, productos de limpieza, agua embotellada",Ropa y medicamentos,media
-Poza Rica,Poza Rica,Veracruz,20.532965,-97.446024,Ropa,Ropa y medicamentos,baja
-San Bartolo Tutotepec,San Bartolo Tutotepec,Hidalgo,20.396808,-98.2047311,Alimentos,Ropa y medicamentos,alta
-Tenango de Doria,Tenango de Doria,Hidalgo,20.338791,-98.227014,Alimentos,Ropa y medicamentos,alta
-Acalapa,Pahuatl�n�,Puebla,20.312096,-98.09031,Alimentos,Ropa y medicamentos,alta
+Xicotepec de Juárez,Xicotepec,Puebla,20.275653,-97.95963,"Medicamentos, productos de limpieza, agua embotellada","Ropa, medicamento",media
+Poza Rica,Poza Rica,Veracruz,20.532965,-97.446024,Ropa,"Ropa, medicamento",baja
+"San Bartolo Tutotepec, Hidalgo",San Bartolo Tutotepec,Hidalgo,20.396808,-98.2047311,Víveres,"Ropa, medicamento",alta
+Tenango de Doria,Tenango de Doria,Hidalgo,20.338791,-98.227014,Víveres,"Ropa, medicamento",alta
+Acalapa,Pahuatlán,Puebla,20.312096,-98.09031,Víveres,"Ropa, medicamento",alta
