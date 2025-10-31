@@ -74,6 +74,41 @@ Cartografía para la atención a desastres en localidades de los estados de Pueb
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
   }).addTo(map);
+  Papa.parse('localidades.csv', {
+  download: true,
+  header: true,
+  delimiter: '\t', // ← esta línea es clave
+  complete: function(results) {
+    results.data.forEach(loc => {
+      if (!loc.lat || !loc.lon) return;
+
+      const color = {
+        'alta': 'red',
+        'media': 'orange',
+        'baja': 'green'
+      }[loc.status?.trim().toLowerCase()] || 'gray';
+
+      const popup = `
+        <b>${loc.nombre}</b><br>
+        Municipio: ${loc.municipio}<br>
+        Estado: ${loc.estado}<br>
+        <b>Necesidad:</b> ${loc.necesidad}<br>
+        <b>Problemática:</b> ${loc.problematica}
+      `;
+
+      const icon = L.AwesomeMarkers.icon({
+        markerColor: color,
+        icon: 'info-sign',
+        prefix: 'glyphicon'
+      });
+
+      L.marker([parseFloat(loc.lat), parseFloat(loc.lon)], { icon })
+        .bindPopup(popup)
+        .addTo(map);
+    });
+  }
+});
+
 
   // Cargar CSV
   Papa.parse('localidades.csv', {
