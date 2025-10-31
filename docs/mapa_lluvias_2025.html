@@ -14,7 +14,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
   <style>
     html, body, #map {
@@ -74,78 +73,97 @@ Cartografía para la atención a desastres en localidades de los estados de Pueb
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
   }).addTo(map);
-  Papa.parse('localidades.csv', {
-  download: true,
-  header: true,
-  delimiter: '\t', // ← esta línea es clave
-  complete: function(results) {
-    results.data.forEach(loc => {
-      if (!loc.lat || !loc.lon) return;
 
-      const color = {
-        'alta': 'red',
-        'media': 'orange',
-        'baja': 'green'
-      }[loc.status?.trim().toLowerCase()] || 'gray';
+  // Datos embebidos directamente
+  const localidades = [
+    {
+      nombre: "La Palma",
+      municipio: "Coyutla",
+      estado: "Veracruz",
+      lat: 20.410931,
+      lon: -97.752611,
+      necesidad: "Medicamentos, productos de limpieza, agua embotellada",
+      problematica: "Brote de dengue",
+      status: "alta"
+    },
+    {
+      nombre: "Xicotepec de Juárez",
+      municipio: "Xicotepec",
+      estado: "Puebla",
+      lat: 20.275653,
+      lon: -97.95963,
+      necesidad: "Medicamentos, productos de limpieza, agua embotellada",
+      problematica: "Ropa, medicamento",
+      status: "media"
+    },
+    {
+      nombre: "Poza Rica",
+      municipio: "Poza Rica",
+      estado: "Veracruz",
+      lat: 20.532965,
+      lon: -97.446024,
+      necesidad: "Ropa",
+      problematica: "Ropa, medicamento",
+      status: "baja"
+    },
+    {
+      nombre: "San Bartolo Tutotepec, Hidalgo",
+      municipio: "San Bartolo Tutotepec",
+      estado: "Hidalgo",
+      lat: 20.396808,
+      lon: -98.2047311,
+      necesidad: "Víveres",
+      problematica: "Ropa, medicamento",
+      status: "alta"
+    },
+    {
+      nombre: "Tenango de Doria",
+      municipio: "Tenango de Doria",
+      estado: "Hidalgo",
+      lat: 20.338791,
+      lon: -98.227014,
+      necesidad: "Víveres",
+      problematica: "Ropa, medicamento",
+      status: "alta"
+    },
+    {
+      nombre: "Acalapa",
+      municipio: "Pahuatlán",
+      estado: "Puebla",
+      lat: 20.312096,
+      lon: -98.09031,
+      necesidad: "Víveres",
+      problematica: "Ropa, medicamento",
+      status: "alta"
+    }
+  ];
 
-      const popup = `
-        <b>${loc.nombre}</b><br>
-        Municipio: ${loc.municipio}<br>
-        Estado: ${loc.estado}<br>
-        <b>Necesidad:</b> ${loc.necesidad}<br>
-        <b>Problemática:</b> ${loc.problematica}
-      `;
+  // Añadir marcadores al mapa
+  localidades.forEach(loc => {
+    const color = {
+      'alta': 'red',
+      'media': 'orange',
+      'baja': 'green'
+    }[loc.status?.trim().toLowerCase()] || 'gray';
 
-      const icon = L.AwesomeMarkers.icon({
-        markerColor: color,
-        icon: 'info-sign',
-        prefix: 'glyphicon'
-      });
+    const popup = `
+      <b>${loc.nombre}</b><br>
+      Municipio: ${loc.municipio}<br>
+      Estado: ${loc.estado}<br>
+      <b>Necesidad:</b> ${loc.necesidad}<br>
+      <b>Problemática:</b> ${loc.problematica}
+    `;
 
-      L.marker([parseFloat(loc.lat), parseFloat(loc.lon)], { icon })
-        .bindPopup(popup)
-        .addTo(map);
+    const icon = L.AwesomeMarkers.icon({
+      markerColor: color,
+      icon: 'info-sign',
+      prefix: 'glyphicon'
     });
-  }
-});
 
-
-  // Cargar CSV
-  Papa.parse('localidades.csv', {
-  download: true,
-  header: true,
-  delimiter: ',', // ← comas, no tabuladores
-  complete: function(results) {
-    results.data.forEach(loc => {
-      if (!loc.lat || !loc.lon) return;
-
-      const color = {
-        'alta': 'red',
-        'media': 'orange',
-        'baja': 'green'
-      }[loc.status?.trim().toLowerCase()] || 'gray';
-
-      const popup = `
-        <b>${loc.nombre}</b><br>
-        Municipio: ${loc.municipio}<br>
-        Estado: ${loc.estado}<br>
-        <b>Necesidad:</b> ${loc.necesidad}<br>
-        <b>Problemática:</b> ${loc.problematica}
-      `;
-
-      const icon = L.AwesomeMarkers.icon({
-        markerColor: color,
-        icon: 'info-sign',
-        prefix: 'glyphicon'
-      });
-
-      L.marker([parseFloat(loc.lat), parseFloat(loc.lon)], { icon })
-        .bindPopup(popup)
-        .addTo(map);
-    });
-  }
-});
-
+    L.marker([loc.lat, loc.lon], { icon })
+      .bindPopup(popup)
+      .addTo(map);
+  });
 </script>
 </body>
 </html>
