@@ -1,0 +1,5 @@
+nombre,municipio,estado,lat,lon,necesidad,problematica,status
+La Palma,Coyutla,Veracruz,20.410931,-97.752611,"Medicamentos, productos de limpieza, agua embotellada",Brote de dengue,alta
+Xicotepec de Juárez,Xicotepec,Puebla,20.275653,-97.95963,"Medicamentos, productos de limpieza, agua embotellada","Ropa, medicamento",media
+Poza Rica,Poza Rica,Veracruz,20.532965,-97.446024,Ropa,"Ropa, medicamento",baja
+,,,,,,,
